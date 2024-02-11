@@ -18,6 +18,18 @@ class User(db.Model):
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140))
+    theme = db.Column(db.String(140))
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    # Add more article fields as needed
+    author_id = db.Column(db.String(140))
+    
+    THEMES = ["race", "nourriture", "jeux"]
+
+    def __init__(self, title, theme, body, author_id, timestamp):
+        if theme not in self.THEMES:
+            raise ValueError(f"Le thème doit être l'un des suivants : {', '.join(self.THEMES)}")
+        self.title = title
+        self.theme = theme
+        self.body = body
+        self.author_id = author_id
+        self.timestamp = timestamp

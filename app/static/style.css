@@ -1,0 +1,88 @@
+/* styles global */
+
+/*
+  4F000B (rouge maron)
+  FF715B (rose saumon)
+  88A096 (sauje gris)
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: black;
+    
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    background-color: #88A096;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    background-color: #88A096;
+}
+
+main {
+    padding: 1em;
+    display :flex;
+    flex-direction : column;
+    justify-content: center;
+    height: 100%;
+}
+
+h2 {
+    margin: auto;
+    color: #4F000B;
+}
+
+form {
+    margin: auto;
+}
+
+/* styles base.html */
+.logo {
+    display : flex;
+    flex: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo__img {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.ref {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ref__line{
+    display: inline;
+    margin-right: 1em;
+    
+}
+
+.ref__line__link{
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+.ref__line__link:focus, .ref__line__link:active{
+    color: #4F000B;
+}
+
+

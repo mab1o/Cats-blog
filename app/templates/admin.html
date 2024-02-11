@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Ajouter un article</h2>
+    <form method="POST" action="{{ url_for('add_article') }}">
+      {{ add_article.hidden_tag() }}
+      <p>{{ add_article.title.label }}<br>{{ add_article.title }}</p>
+      <p>{{ add_article.theme.label }}<br>{{ add_article.theme }}</p>
+      <p>{{ add_article.body.label }}<br>{{ add_article.body }}</p>
+      <p>{{ add_article.author_id.label }}<br>{{ add_article.author_id }}</p>
+      <p>{{ add_article.timestamp.label }}<br>{{ add_article.timestamp }}</p>
+      <p>{{ add_article.submit() }}</p>
+    </form>
+{% endblock %}

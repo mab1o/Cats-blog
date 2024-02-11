@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, flash
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User, Article
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, ArticleForm
 
 @app.route('/')
 @app.route('/index')
@@ -43,3 +43,23 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/admin', methods=['GET', 'POST'])
+def add_article():
+    add_article = ArticleForm()
+    if add_article.validate_on_submit():
+        article = Article(title=add_article.title.data, 
+                          theme=add_article.theme.data, 
+                          body=add_article.body.data, 
+                          author_id= add_article.author_id.data,
+                          timestamp= add_article.timestamp.data)
+        db.session.add(article)
+        db.session.commit()
+        flash('Article ajouté avec succès!', 'success')
+        return redirect(url_for('index'))
+    return render_template('admin.html', title='Ajouter un article', add_article=add_article)
+
+@app.route('/article/<int:id>')
+def article(id):
+    article = Article.query.get_or_404(id)
+    return render_template('article.html', title='Article', article=article)
