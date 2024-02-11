@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="gestion">
+    <h2 class="gestion__title">Ajouter un article</h2>
+    <form method="POST" class="ad-form">
+      {{ add_article.hidden_tag() }}
+      <p>{{ add_article.title.label }}<br>{{ add_article.title(class="ad-form__element") }}</p>
+      <p>{{ add_article.theme.label }}<br>{{ add_article.theme(class="ad-form__element") }}</p>
+      <p>{{ add_article.body.label }}<br>{{ add_article.body(class="ad-form__element") }}</p>
+      <p>{{ add_article.author_id.label }}<br>{{ add_article.author_id(class="ad-form__element") }}</p>
+      <p>{{ add_article.timestamp.label }}<br>{{ add_article.timestamp(class="ad-form__element") }}</p>
+      <p>{{ add_article.submit(class="ad-form__btn") }}</p>
+    </form>
+
+    <h2 class="gestion__title">Supprimer Article</h2>
+    <form method="POST" class="ad-form">
+      {{ del_article.hidden_tag() }}
+      <p>{{ del_article.article.label }}<br>{{ del_article.article(class="ad-form__element")}}</p>
+      <p>{{ del_article.submit(class="ad-form__btn") }}</p>
+    </form>
+
+    <h2 class="gestion__title">Modifier Article</h2>
+    <form method="POST" class="ad-form">
+      {{ mod_article.hidden_tag() }}
+      <p>{{ mod_article.article.label }}<br>{{ mod_article.article(class="ad-form__element") }}</p>
+      <p>{{ mod_article.title.label }}<br>{{ mod_article.title(class="ad-form__element") }}</p>
+      <p>{{ mod_article.body.label }}<br>{{ mod_article.body(class="ad-form__element") }}</p>
+      <p>{{ mod_article.submit(class="ad-form__btn") }}</p>
+    </form>
+  </div>
+{% endblock %}

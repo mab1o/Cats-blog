@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, flash
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User, Article
-from app.forms import LoginForm, RegistrationForm, ArticleForm
+from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleForm, UpdateArticleForm
 
 @app.route('/')
 @app.route('/index')
@@ -44,8 +44,10 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/gestion', methods=['GET', 'POST'])
 def add_article():
+
+    # add article
     add_article = ArticleForm()
     if add_article.validate_on_submit():
         article = Article(title=add_article.title.data, 
@@ -57,7 +59,35 @@ def add_article():
         db.session.commit()
         flash('Article ajouté avec succès!', 'success')
         return redirect(url_for('index'))
-    return render_template('admin.html', title='Ajouter un article', add_article=add_article)
+    
+    # delete article
+    del_article = DeleteArticleForm()
+    del_article.article.choices = [(article.id, article.title) for article in Article.query.all()]
+    if del_article.validate_on_submit():
+        article_id = del_article.article.data
+        article = Article.query.get(article_id)
+        db.session.delete(article)
+        db.session.commit()
+        flash('Article supprimé avec succès!', 'success')
+        return redirect(url_for('index'))
+    
+    # modifier article
+    mod_article = UpdateArticleForm()
+    mod_article.article.choices = [(article.id, article.title) for article in Article.query.all()]
+    if mod_article.validate_on_submit():
+        article_id = mod_article.article.data
+        article = Article.query.get(article_id)
+        article.title = mod_article.title.data
+        article.body = mod_article.body.data
+        db.session.add(article)
+        db.session.commit()
+        flash('Article modifié avec succès!', 'success')
+        return redirect(url_for('index'))
+
+    return render_template('gestion.html', title='Admin', 
+                           add_article=add_article, 
+                           del_article=del_article,
+                           mod_article=mod_article)
 
 @app.route('/article/<int:id>')
 def article(id):

@@ -15,6 +15,9 @@
 - [x] Affichage d'un article complet sur une page dédiée.
 - [ ] Modification des informations personnelles dans la partie profil.
 - [ ] Interface d'administration pour effectuer des opérations CRUD sur les articles du blog.
+    - [x] Creation d'article
+    - [x] Supression d'article
+    - [ ] Modification d'article (affichage imprevisible)
 
 ## Comment exécuter le projet localement
 

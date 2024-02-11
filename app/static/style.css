@@ -85,4 +85,40 @@ form {
     color: #4F000B;
 }
 
+/* styles gestion.html */
+
+.gestion {
+    width: 50%;
+    margin:auto;
+}
+
+.gestion__title {
+    margin: 1em auto;
+}
+
+.ad-form {
+    padding: 1em 3em;
+    border-radius: 10px;
+    border: solid #FF715B 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-form__element {
+    width: 100%;
+    border-radius: 1px;
+    margin-top: 1px;
+}
+
+.ad-form__element:focus {
+    background-color: #88A096;
+}
+
+.ad-form__btn{
+    margin: auto;
+    color: #f9f9f9;
+    background-color: #4F000B;
+    border-radius: 5px;
+    padding: 5px  10px;
+}
 

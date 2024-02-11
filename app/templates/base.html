@@ -16,12 +16,12 @@
     <nav>
         <ul class="ref">
           <li class="ref__line"><a href="{{ url_for('index') }}" class="ref__line__link">Accueil</a></li>
-            <!-- Ajoutez d'autres liens de navigation selon vos besoins -->
-            {% if current_user.is_authenticated %}
+          <li class="ref__line"><a href="gestion" class="ref__line__link">gestion</a></li>
+          {% if current_user.is_authenticated %}
             <li class="ref__line"><a href="{{ url_for('logout') }}" class="ref__line__link">Logout</a></li>
-            {% else %}
+          {% else %}
             <li class="ref__line"><a href="{{ url_for('login') }}" class="ref__line__link">Login</a></li>
-            {% endif %}
+          {% endif %}
         </ul>
     </nav>
   </header>
