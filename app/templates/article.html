@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="gestion__title">Modifier d'un Article</h2>
-<form method="POST" class="ad-form">
-  {{ form.hidden_tag() }}
-  <p>{{ form.title.label }}<br>{{ form.title(class="ad-form__element") }}</p>
-  <p>{{ form.body.label }}<br>{{ form.body(class="ad-form__element") }}</p>
-  <p>{{ form.submit(class="ad-form__btn") }}</p>
-</form>
+  <div class="article">
+    <h2 class="article__title">{{ article.title }}</h2>
+    <p class="article__elt">{{ article.author_id }}</p>
+    <p class="article__elt">{{ article.theme }}</p>
+    <p class="article__elt">{{ article.timestamp }}</p>
+    <p class="article__body">{{ article.body }}</p>
+  </div>
 {% endblock %}

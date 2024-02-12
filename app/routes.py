@@ -65,7 +65,8 @@ def register():
 
 @app.route('/gestion', methods=['GET', 'POST'])
 def add_article():
-
+    if not current_user.is_authenticated or not current_user.username == "Admin":
+        return redirect(url_for('index'))
     # add article
     add_article = ArticleForm()
     if add_article.validate_on_submit():

@@ -16,7 +16,9 @@
     <nav>
         <ul class="ref">
           <li class="ref__line"><a href="{{ url_for('index') }}" class="ref__line__link">Accueil</a></li>
-          <li class="ref__line"><a href="gestion" class="ref__line__link">Gestion</a></li>
+          {% if current_user.username == "Admin" %}
+            <li class="ref__line"><a href="gestion" class="ref__line__link">Gestion</a></li>
+          {% endif %}
           <li class="ref__line"><a href="profile" class="ref__line__link">Profil</a></li>
           {% if current_user.is_authenticated %}
             <li class="ref__line"><a href="{{ url_for('logout') }}" class="ref__line__link">Logout</a></li>

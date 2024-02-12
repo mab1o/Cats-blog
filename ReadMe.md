@@ -19,6 +19,12 @@
     - [x] Supression d'article
     - [ ] Modification d'article (affichage imprévisible)
 
+## Tests
+
+Les fonctionnalitées sont accessible differement si vous etes admin ou simple client:
+* pour les fonctions avancées, username:Admin, Password:Admin
+* pour les tests utilisateurs, username:TOTO, Password:123
+
 ## Comment exécuter le projet localement
 
 1. **Installer Flask :** Assurez-vous d'avoir installé Flask et ses dépendances  sur votre ordinateur.
@@ -37,8 +43,8 @@
 - [ ] Ajouter un module de recherche sur les articles.
 - [ ] Mettre en place une gestion des permissions plus complexe.
 - [ ] Permettre aux utilisateurs de mettre des articles en favori.
-- [ ] Utiliser un framework frontend comme Vue.js ou Angular pour le client.
-- [ ] Utiliser Git avec GitHub (ou GitLab, ou BitBucket) pour gérer les versions et sauvegardes du projet.
+- [x] Utiliser un framework et/ou des librairies.
+- [x] Utiliser Git avec GitHub (ou GitLab, ou BitBucket) pour gérer les versions et sauvegardes du projet.
 
 ## Auteur
 Ce projet a été réalisé par Margaux Bondel dans le cadre du recrutement à de EPF Project, junior entreprise de l'EPF Cachan.
