@@ -2,7 +2,8 @@ from flask import render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User, Article
-from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleForm, UpdateArticleForm
+from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleForm, UpdateArticleForm, DeleteUserForm, UpdateProfileForm
+
 
 @app.route('/')
 @app.route('/index')
@@ -28,6 +29,20 @@ def login():
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if not current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = UpdateProfileForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.set_password(form.password.data)
+        db.session.commit()
+        return redirect(url_for('index'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+    return render_template('profile.html', title='Profile', form=form)
 
 @app.route('/logout')
 def logout():
@@ -87,11 +102,23 @@ def add_article():
         db.session.commit()
         flash('Article modifié avec succès!', 'success')
         return redirect(url_for('index'))
+    
+    # delete user
+    del_user = DeleteUserForm()
+    del_user.user.choices = [(user.id, user.username + " " + user.email + " " + user.password_hash ) for user in User.query.all()]
+    if del_user.validate_on_submit():
+        user_id = del_user.user.data
+        user = User.query.get(user_id)
+        db.session.delete(user)
+        db.session.commit()
+        flash('Article supprimé avec succès!', 'success')
+        return redirect(url_for('index'))
 
     return render_template('gestion.html', title='Admin', 
                            add_article=add_article, 
                            del_article=del_article,
-                           mod_article=mod_article)
+                           mod_article=mod_article,
+                           del_user=del_user)
 
 @app.route('/article/<int:id>')
 def article(id):

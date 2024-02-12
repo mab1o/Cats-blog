@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="gestion">
+    <h2 class="gestion__title">Login</h2>
+    <form method="post" class="ad-form">
+      {{ form.hidden_tag() }}
+      <p>{{ form.username.label }}<br>{{ form.username(class="ad-form__element") }}</p>
+      <p>{{ form.password.label }}<br>{{ form.password(class="ad-form__element") }}</p>
+      <p>{{ form.submit(class="ad-form__btn") }}</p>
+    </form>
+  </div>
+{% endblock %}

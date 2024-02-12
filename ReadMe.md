@@ -13,15 +13,15 @@
 - [x] Affichage des articles par thèmes sur la page d'accueil.
 - [x] Possibilité de filtrer les articles par thèmes.
 - [x] Affichage d'un article complet sur une page dédiée.
-- [ ] Modification des informations personnelles dans la partie profil.
+- [x] Modification des informations personnelles dans la partie profil.
 - [ ] Interface d'administration pour effectuer des opérations CRUD sur les articles du blog.
     - [x] Creation d'article
     - [x] Supression d'article
-    - [ ] Modification d'article (affichage imprevisible)
+    - [ ] Modification d'article (affichage imprévisible)
 
 ## Comment exécuter le projet localement
 
-1. **Installer Flask :**        Assurez-vous d'avoir Flask installé sur votre ordinateur.
+1. **Installer Flask :** Assurez-vous d'avoir installé Flask et ses dépendances  sur votre ordinateur.
 
 2. **Lancer programme :** Ouvrez un terminal (ou une invite de commande) et accédez au répertoire racine du projet. Lancer le fichier run.py avec la commande :
 

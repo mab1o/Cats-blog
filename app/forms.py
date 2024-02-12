@@ -13,7 +13,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    # password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
 class ArticleForm(FlaskForm):
@@ -33,3 +33,12 @@ class UpdateArticleForm(FlaskForm):
     title = StringField('Titre', validators=[DataRequired()])
     body = TextAreaField('Contenu', validators=[DataRequired()])
     submit = SubmitField('Modifier')
+
+class DeleteUserForm(FlaskForm):
+    user = SelectField('Utilisateur à supprimer', coerce=int)
+    submit = SubmitField('Supprimer')
+
+class UpdateProfileForm(FlaskForm):
+    username = StringField('Nouveau nom d\'utilisateur', validators=[DataRequired(), Length(min=1, max=20)])
+    password = PasswordField('Nouveau mot de passe', validators=[DataRequired()])
+    submit = SubmitField('Mettre à jour')
