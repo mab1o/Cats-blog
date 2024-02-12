@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User, Article
@@ -8,7 +8,12 @@ from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleFor
 @app.route('/index')
 def index():
     articles = Article.query.all()
-    return render_template('home.html', title='Home', articles=articles)
+    theme_selectionne = request.args.get('theme')
+    if not theme_selectionne:
+        articles_filtres = articles
+    else:
+        articles_filtres = [article for article in articles if article.theme == theme_selectionne]
+    return render_template('home.html', title='Home', articles=articles_filtres)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

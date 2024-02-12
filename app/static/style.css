@@ -124,6 +124,24 @@ form {
 
 /* styles home.html */
 
+.art-link {
+    list-style: none;
+    display: flex;
+    margin :20px auto;
+}
+
+.art-link__link { 
+    border-radius: 6px;
+    border : solid #FF715B 2px;
+    margin-right: 3px;
+    padding: 2px 5px;
+}
+
+.art-link__link:focus, .art-link__link,.art-link__link:active {
+    text-decoration: none;
+    color: black;
+}
+
 .art-grid {
     list-style: none;
     padding: 0;

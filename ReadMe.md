@@ -10,8 +10,8 @@
 ## Fonctionnalités
 
 - [ ] Connexion utilisateur obligatoire pour accéder au site.
-- [ ] Affichage des articles par thèmes sur la page d'accueil.
-- [ ] Possibilité de filtrer les articles par thèmes.
+- [x] Affichage des articles par thèmes sur la page d'accueil.
+- [x] Possibilité de filtrer les articles par thèmes.
 - [x] Affichage d'un article complet sur une page dédiée.
 - [ ] Modification des informations personnelles dans la partie profil.
 - [ ] Interface d'administration pour effectuer des opérations CRUD sur les articles du blog.

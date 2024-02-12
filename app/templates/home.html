@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h2>Filtrer par thème </h2>
+  <ul class="art-link">
+      <li><a href="{{ url_for('index') }}" class="art-link__link">Tous les articles</a></li>
+      <li><a href="{{ url_for('index', theme='nourriture') }}" class="art-link__link">Nourriture</a></li>
+      <li><a href="{{ url_for('index', theme='race') }}" class="art-link__link">Race</a></li>
+      <li><a href="{{ url_for('index', theme='jeux') }}" class="art-link__link">Jeux</a></li>
+  </ul>
   <h2>Articles</h2>
   <ul class="art-grid">
     <div class="art-grid__cpt">
