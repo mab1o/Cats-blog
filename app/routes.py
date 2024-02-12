@@ -7,6 +7,7 @@ from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleFor
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     articles = Article.query.all()
     theme_selectionne = request.args.get('theme')
@@ -31,6 +32,7 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
     if not current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -45,6 +47,7 @@ def profile():
     return render_template('profile.html', title='Profile', form=form)
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))
@@ -64,6 +67,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/gestion', methods=['GET', 'POST'])
+@login_required
 def add_article():
     if not current_user.is_authenticated or not current_user.username == "Admin":
         return redirect(url_for('index'))
@@ -122,6 +126,7 @@ def add_article():
                            del_user=del_user)
 
 @app.route('/article/<int:id>')
+@login_required
 def article(id):
     article = Article.query.get_or_404(id)
     return render_template('article.html', title='Article', article=article)

@@ -9,7 +9,7 @@
 
 ## Fonctionnalités
 
-- [ ] Connexion utilisateur obligatoire pour accéder au site.
+- [x] Connexion utilisateur obligatoire pour accéder au site.
 - [x] Affichage des articles par thèmes sur la page d'accueil.
 - [x] Possibilité de filtrer les articles par thèmes.
 - [x] Affichage d'un article complet sur une page dédiée.
