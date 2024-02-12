@@ -204,3 +204,11 @@ form {
 .article__body {
     text-align: justify;
 }
+
+/* login.html */
+
+.login__link {
+    margin: auto;
+    color:#FF715B;
+    text-decoration: #FF715B solid 1px underline;
+}
