@@ -2,13 +2,21 @@
 
 {% block content %}
   <h2>Articles</h2>
-  <ul>
-    {% if articles %}
-      {% for article in articles %}
-        <li><a href="{{ url_for('article', id=article.id) }}">{{ article.title }}</a></li>
-      {% endfor %}
-    {% else %}
-      <li>No articles found</li>
-    {% endif %}
+  <ul class="art-grid">
+    <div class="art-grid__cpt">
+      {% if articles %}
+        {% for article in articles %}
+          <div class="art-grid__element">
+            <li><a href="{{ url_for('article', id=article.id) }}">
+              <h3 class="art__title">{{ article.title }}</h3>
+              <em class="art__theme">{{ article.theme }}</em>
+              <p class="art__body">{{ article.body}}</p>
+            </a></li>
+          </div>
+        {% endfor %}
+      {% else %}
+        <li>No articles found</li>
+      {% endif %}
+    </div>
   </ul>
 {% endblock %}

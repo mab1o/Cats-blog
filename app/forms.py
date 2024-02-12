@@ -22,7 +22,7 @@ class ArticleForm(FlaskForm):
     body = TextAreaField('Contenu', validators=[DataRequired()])
     timestamp = DateField('Date', format='%Y-%m-%d', default=datetime.now())
     author_id = StringField('Auteur', validators=[DataRequired()])
-    submit = SubmitField('Validate')
+    submit = SubmitField('Valider')
 
 class DeleteArticleForm(FlaskForm):
     article = SelectField('Article à supprimer', coerce=int)

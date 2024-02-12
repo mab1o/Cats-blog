@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{ article.title }}</h2>
-  <p>{{ article.autor_id }}</p>
-  <p>{{ article.theme }}</p>
-  <p>{{ article.timestamp }}</p>
-  <p>{{ article.body }}</p>
+  <div class="article">
+    <h2 class="article__title">{{ article.title }}</h2>
+    <p class="article__elt">{{ article.author_id }}</p>
+    <p class="article__elt">{{ article.theme }}</p>
+    <p class="article__elt">{{ article.timestamp }}</p>
+    <p class="article__body">{{ article.body }}</p>
+  </div>
 {% endblock %}

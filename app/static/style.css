@@ -122,3 +122,67 @@ form {
     padding: 5px  10px;
 }
 
+/* styles home.html */
+
+.art-grid {
+    list-style: none;
+    padding: 0;
+}
+
+.art-grid__cpt {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px; 
+}
+
+.art-grid__element{
+    height: 300px;
+    border-radius: 5px;
+    border: solid #4F000B 2px;
+    padding: 5px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
+.art-grid__element li{
+    list-style: none;
+}
+.art-grid__element a, .art-grid__element a:focus, .art-grid__element a:active{
+    text-decoration: none;
+    color: black;
+}
+
+.art__body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
+.art__theme {
+    font-style: bold;
+    color:#FF715B;
+}
+
+/* styles article.html */
+.article {
+    width: 50%;
+    margin: auto;
+}
+
+.article__title{
+    margin: 1em 0px;
+}
+
+.article__elt {
+    font-size: 10px;
+    color: #FF715B;
+    padding: 0px;
+    margin: 0px;
+}
+
+.article__body {
+    text-align: justify;
+}

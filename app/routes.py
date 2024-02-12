@@ -7,7 +7,6 @@ from app.forms import LoginForm, RegistrationForm, ArticleForm, DeleteArticleFor
 @app.route('/')
 @app.route('/index')
 def index():
-    # Retrieve articles from the database
     articles = Article.query.all()
     return render_template('home.html', title='Home', articles=articles)
 
